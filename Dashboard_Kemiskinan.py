@@ -33,14 +33,14 @@ st.markdown("""
 # =========================
 # LOAD DATASET
 # =========================
-df = pd.read_csv("C:/Users/fbkby/Latihan/Project Kemiskinan/Hasil_Final.csv")
+df = pd.read_csv("Hasil_Final.csv")
 
 # =========================
 # LOAD MODEL
 # =========================
 @st.cache_resource
 def load_model():
-    data = joblib.load('C:/Users/fbkby/Latihan/Project Kemiskinan/KNN_Model.joblib')
+    data = joblib.load('KNN_Model.joblib')
     return data['model'], data['scaler'], data['features']
 
 model, scaler, features_used = load_model()
@@ -50,9 +50,9 @@ model, scaler, features_used = load_model()
 # =========================
 @st.cache_data
 def load_map():
-    df = pd.read_csv("C:/Users/fbkby/Latihan/Project Kemiskinan/kabupaten_kota_cluster.csv")
+    df = pd.read_csv("kabupaten_kota_cluster.csv")
 
-    with open("C:/Users/fbkby/Latihan/Project Kemiskinan/Kabupaten-Kota_(Provinsi Jawa Timur).geojson") as f:
+    with open("Kabupaten-Kota_(Provinsi Jawa Timur).geojson") as f:
         geojson = json.load(f)
 
     return df, geojson
